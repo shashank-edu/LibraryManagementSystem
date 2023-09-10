@@ -1,0 +1,72 @@
+version: '3'
+services:
+    mongo:
+        image: mongo:latest
+        container_name: mongocontainer
+        restart: always
+        ports:
+            - 27017:27017
+        networks:
+            - lms-network
+    lms-server:
+        build: ./libraryManagementServer
+        container_name: lms-server
+        image: lms-server
+        ports:
+            - 8761:8761
+        networks:
+            - lms-network
+    lms-api-gateway:
+        build: ./libraryManagementGateway
+        container_name: lms-api-gateway
+        image: lms-api-gateway
+        networks:
+            - lms-network
+        ports:
+            - 9004:9004
+        depends_on:
+            - lms-server
+    lms-library-management:
+        build: ./LibraryManagement
+        container_name: lms-library-management
+        image: lms-library-management
+        networks:
+            - lms-network
+        ports:
+            - 9001:9001
+        depends_on:
+            - lms-server
+            - mongo
+        links:
+            - mongo
+    
+    lms-librarian-service:
+        build: ./librarianService
+        container_name: lms-librarian-service
+        image: lms-librarian-service
+        networks:
+            - lms-network
+        ports:
+            - 9003:9003
+        depends_on:
+            - lms-server
+            - mongo
+        links:
+            - mongo
+         
+    lms-borrower-service:
+        build: ./borrowerService
+        container_name: lms-borrower-service
+        image: lms-borrower-service
+        networks:
+            - lms-network
+        ports:
+            - 9002:9002
+        depends_on:
+            - lms-server
+            - mongo
+        links:
+            - mongo
+networks:
+    lms-network:
+        driver: bridge

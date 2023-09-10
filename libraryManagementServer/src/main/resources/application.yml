@@ -1,0 +1,12 @@
+server:
+  port: 8761
+  address: 0.0.0.0
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+  instance:
+    hostname: lms-server
+  server:
+    wait-time-in-ms-when-sync-empty: 0

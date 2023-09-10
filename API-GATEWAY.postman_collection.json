@@ -1,0 +1,506 @@
+{
+	"info": {
+		"_postman_id": "533fa4e1-e7b1-4f79-8430-53cec55f016e",
+		"name": "API-GATEWAY",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "libraryManagementService",
+			"item": [
+				{
+					"name": "Direct-LMS",
+					"item": [
+						{
+							"name": "Add Books",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"bookID\": \"apt18\",\r\n    \"individualBooksObj\": [\r\n        {\r\n            \"bookISBN\": \"HWDS9072\",\r\n            \"bookIssueDate\": \"2022-11-24\",\r\n            \"bookReturnDate\": \"2022-11-26\",\r\n            \"lastModified\": null,\r\n            \"issuerId\": \"1232212\",\r\n            \"issued\": false\r\n        }\r\n    ],\r\n    \"title\": \"best  book\",\r\n    \"category\": null,\r\n    \"publishedYear\": 2022,\r\n    \"author\": \"shashank\",\r\n    \"entityCreationDate\": \"2022-11-27\",\r\n    \"floor\": \"2\",\r\n    \"rack\": \"45\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9001/healthybooks/libraryManagementService/save",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"healthybooks",
+										"libraryManagementService",
+										"save"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get All the Books",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9001/healthybooks/libraryManagementService/getAllBooks",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"healthybooks",
+										"libraryManagementService",
+										"getAllBooks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get Books by department",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9001/healthybooks/libraryManagementService/department/Civil",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"healthybooks",
+										"libraryManagementService",
+										"department",
+										"Civil"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get books by category",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9001/healthybooks/libraryManagementService/category/novel",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"healthybooks",
+										"libraryManagementService",
+										"category",
+										"novel"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get books by author",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9001/healthybooks/libraryManagementService/Author/shashank",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"healthybooks",
+										"libraryManagementService",
+										"Author",
+										"shashank"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "get book by BookID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9004/healthybooks/libraryManagementService/booksId?id=DAU4323",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9004",
+							"path": [
+								"healthybooks",
+								"libraryManagementService",
+								"booksId"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "DAU4323"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get borrowedBook ByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9004/healthybooks/libraryManagementService/getBorrowedById?id=AER122",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9004",
+							"path": [
+								"healthybooks",
+								"libraryManagementService",
+								"getBorrowedById"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "AER122"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "borrowerService",
+			"item": [
+				{
+					"name": "Save Borrower Entity",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"studentId\": 42332,\r\n    \"firstName\": \"ankita\",\r\n    \"lastName\": \"singh\",\r\n    \"currentYear\": \"3rd\",\r\n    \"courseName\": \"Diploma\",\r\n    \"department\": \"CS\",\r\n    \"classSection\": \"1821\",\r\n    \"emailId\": \"ankitasingh@gmail.com\",\r\n    \"bookIssuedJsonObjectList\": [],\r\n    \"totalFineAlreadyPaid\": 0\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9002/healthybooks/borrowerService/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9002",
+							"path": [
+								"healthybooks",
+								"borrowerService",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "borrow book by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9004/healthybooks/borrowerService/borrowerBookByID/42332?bookId=DAU4323",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9004",
+							"path": [
+								"healthybooks",
+								"borrowerService",
+								"borrowerBookByID",
+								"42332"
+							],
+							"query": [
+								{
+									"key": "bookId",
+									"value": "DAU4323"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all the browsers list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9004/healthybooks/borrowerService/getAllBorrowers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9004",
+							"path": [
+								"healthybooks",
+								"borrowerService",
+								"getAllBorrowers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Return book By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9004/healthybooks/borrowerService/returnBookByID/22432?bookISBN=DAU4323",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9004",
+							"path": [
+								"healthybooks",
+								"borrowerService",
+								"returnBookByID",
+								"22432"
+							],
+							"query": [
+								{
+									"key": "bookISBN",
+									"value": "DAU4323"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "generateReport",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9004/healthybooks/borrowerService/generateReport",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9004",
+							"path": [
+								"healthybooks",
+								"borrowerService",
+								"generateReport"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get books  by department",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9004/healthybooks/borrowerService//getBookByDepartment/Civil",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9004",
+							"path": [
+								"healthybooks",
+								"borrowerService",
+								"",
+								"getBookByDepartment",
+								"Civil"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "LibrarianService",
+			"item": [
+				{
+					"name": "get All books Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9004/healthybooks/librarianService/getDetailsFromLibrary",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9004",
+							"path": [
+								"healthybooks",
+								"librarianService",
+								"getDetailsFromLibrary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all the librarians details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9004/healthybooks/librarianService/getAllLibrarians",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9004",
+							"path": [
+								"healthybooks",
+								"librarianService",
+								"getAllLibrarians"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save a book",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookID\": \"324HD\",\r\n    \"individualBooksObj\": [\r\n        {\r\n            \"bookISBN\": \"RTA123\"\r\n        },\r\n        {\r\n            \"bookISBN\": \"RTW784\"\r\n        }\r\n        \r\n    ],\r\n    \"department\": \"GENERAL\",\r\n    \"title\": \"GENERAL\",\r\n    \"category\": \"NOVEL\",\r\n    \"publishedYear\": 2022,\r\n    \"totalNoOfBooks\": 12,\r\n    \"author\": \"RKGUPTA\",\r\n    \"floor\": \"2\",\r\n    \"rack\": \"23\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9004/healthybooks/librarianService/saveBookDetails",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9004",
+							"path": [
+								"healthybooks",
+								"librarianService",
+								"saveBookDetails"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update book record",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \r\n    \"individualBooksObj\": [\r\n        {\r\n            \"bookISBN\": \"HWDS9072\",\r\n            \"bookIssueDate\": \"2022-11-24\",\r\n            \"bookReturnDate\": \"2022-11-26\",\r\n            \"lastModified\": null,\r\n            \"issuerId\": \"1232212\",\r\n            \"issued\": false\r\n        }\r\n    ],\r\n    \"department\": \"EE\",\r\n    \"title\": \"best  book\",\r\n    \"category\": \"Novel\",\r\n    \"publishedYear\": 2022,\r\n    \"author\": \"shashank\",\r\n    \"entityCreationDate\": \"2022-11-30\",\r\n    \"noOfBookAvailable\": 12,\r\n    \"totalNoOfBooks\": 30,\r\n    \"floor\": \"2\",\r\n    \"rack\": \"45\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9004/healthybooks/librarianService/updateBookDetails/apt20",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9004",
+							"path": [
+								"healthybooks",
+								"librarianService",
+								"updateBookDetails",
+								"apt20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a book",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9004/healthybooks/librarianService/deleteBookData/63870515bd60120a0c057e79",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9004",
+							"path": [
+								"healthybooks",
+								"librarianService",
+								"deleteBookData",
+								"63870515bd60120a0c057e79"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "save librarian details",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"empId\": 67342,\r\n        \"firstName\": \"anand\",\r\n        \"lastName\": \"kumar\",\r\n        \"designation\": \"Librarian\",\r\n        \"emailId\": \"AnandYadav@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9004/healthybooks/librarianService/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9004",
+							"path": [
+								"healthybooks",
+								"librarianService",
+								"save"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
